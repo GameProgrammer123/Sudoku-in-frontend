@@ -108,10 +108,9 @@ function funkcja3(nid,Verif){
 			  objnid[di] = false; document.getElementById(di).style.backgroundColor = "transparent";
 			}
       
-	
 	document.getElementById(nid).style.background="#0000ff";
     objnid[nid] = true;
-		
+	
 	window.onkeydown = function(){
 	 if (EmptyField < 81 || obj4.zmiennastop === false) {
 	   var code = event.keyCode;
@@ -125,8 +124,13 @@ function funkcja3(nid,Verif){
 			 document.getElementById(nid).innerHTML = '';
 			 YX(nid, obj2);
 			 taborg[obj2.osy][obj2.osx] = null;
-			} else 
-				alert('Enter only digit form one to nine !!! ;)');
+			} else
+                if(code === 13 && document.getElementById("cell").value !== ''){
+                  document.getElementById(nid).innerHTML = document.getElementById("cell").value;
+				  YX(nid, obj2);
+				  taborg[obj2.osy][obj2.osx] = parseInt(document.getElementById("cell").value);
+				}
+				else if(code !== 13) alert('Enter only digit form one to nine !!! ;)');
 	   if(Verif === true) Verification(nid);
 	 } else if (Verif === true) alert('Congratulations, you did it !!! \nYour time: '+the_display_string)
 			else alert('Sudoku Solved !!!');
