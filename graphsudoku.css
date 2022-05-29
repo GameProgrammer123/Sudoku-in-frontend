@@ -110,7 +110,7 @@ p.meter, p.DescInfoLevel {
 	top: 25%;
 }
 div.forphone{
-	width: 99%;
+    width: 99%;
     bottom: 0;
     position: absolute;
     text-align: center;
@@ -119,5 +119,5 @@ div.forphone{
 }
 input[type=number]{
     width: 35px;
-	margin-left: 10px;
+    margin-left: 10px;
 }
