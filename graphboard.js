@@ -125,7 +125,7 @@ function funkcja3(nid,Verif){
 			 YX(nid, obj2);
 			 taborg[obj2.osy][obj2.osx] = null;
 			} else
-                if(code === 13 && document.getElementById("cell").value !== ''){
+                if(code === 13 && document.getElementById("cell").value !== ''){ // Alternative on the phone
                   document.getElementById(nid).innerHTML = document.getElementById("cell").value;
 				  YX(nid, obj2);
 				  taborg[obj2.osy][obj2.osx] = parseInt(document.getElementById("cell").value);
