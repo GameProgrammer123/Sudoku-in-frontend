@@ -94,7 +94,7 @@ function funkcja3(nid,Verif){
         var theChar = String.fromCharCode(code);
         document.getElementById(nid).innerHTML = theChar;
 		YX(nid, obj2);
-		taborg[obj2.osy][obj2.osx] = parseInt(theChar);
+		taborg[obj2.osy][obj2.osx] = '<p><span>'+parseInt(theChar)+'</span></p>';
 		IsDigit = true;
 		} else 
 			if ((objnid[nid] === true && Verif === false) || (objnid[nid] === true && Verif === true))
@@ -194,7 +194,7 @@ div_board.onclick = function(){
 	document.getElementById(this.id).style.color="red";
 	if (FilledField < 81 || obj4.zmiennastop === false)
 	if(GetIdDiv !== null && objnid[GetIdDiv] === true){
-	document.getElementById(GetIdDiv).innerHTML = document.getElementById(this.id).textContent;
+	document.getElementById(GetIdDiv).innerHTML = '<p><span>'+document.getElementById(this.id).textContent+'</span></p>';
 	YX(GetIdDiv, obj2);
 	taborg[obj2.osy][obj2.osx] = parseInt(document.getElementById(this.id).textContent);
 	IsDigit = true;
