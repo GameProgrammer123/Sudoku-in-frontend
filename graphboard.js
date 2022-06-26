@@ -256,7 +256,7 @@ ChangeRiado(elementsRiadio3,3);
 	  if (firstEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true) 
 	  for(var r = 1; r <= 9; ++r)
          for(var c = 1; c <= 9; ++c){
-		   document.getElementById((r - 1)* 9 + c).innerHTML = taborg[r][c];
+		   document.getElementById((r - 1)* 9 + c).innerHTML = '<p><span>'+taborg[r][c]+'</span></p>';
 		   element.innerHTML = 'Sudoku Solved !!!';
 		   if (VerifTrue === true){ clearInterval(idInterwalu); }
 		   FilledField = FilledField + 1;
@@ -265,7 +265,7 @@ ChangeRiado(elementsRiadio3,3);
 	 else if(secondEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true)
            for(var r = 1; r <= 9; ++r)
          for(var c = 1; c <= 9; ++c){
-		   document.getElementById((r - 1)* 9 + c).innerHTML = taborg[r][c];
+		   document.getElementById((r - 1)* 9 + c).innerHTML = '<p><span>'+taborg[r][c]+'</span></p>';
 		   element.innerHTML = 'Sudoku Solved !!!';
 		   if (VerifTrue === true){ clearInterval(idInterwalu); }
 		   FilledField = FilledField + 1;
@@ -343,7 +343,7 @@ switch (LevelNumber) {
   CreatNewBoard(taborg,81,obj4,81 - FilledField);
   for(var r = 1; r <= 9; ++r)
      for(var c = 1; c <= 9; ++c){
-       document.getElementById((r - 1)* 9 + c).innerHTML = taborg[r][c];
+       document.getElementById((r - 1)* 9 + c).innerHTML = '<p><span>'+taborg[r][c]+'</span></p>';
 	   if(taborg[r][c] !== null){
 		 document.getElementById((r - 1)* 9 + c).style.pointerEvents = "none";
 		 document.getElementById((r - 1)* 9 + c).style.color = "rgb(98 25 25)";
