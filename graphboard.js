@@ -92,9 +92,9 @@ function funkcja3(nid,Verif){
 	   var code = event.keyCode;
        if (code > 48 && code < 58 && objnid[nid] === true){
         var theChar = String.fromCharCode(code);
-        document.getElementById(nid).innerHTML = theChar;
+        document.getElementById(nid).innerHTML = '<p><span>'+theChar+'</span></p>';
 		YX(nid, obj2);
-		taborg[obj2.osy][obj2.osx] = '<p><span>'+parseInt(theChar)+'</span></p>';
+		taborg[obj2.osy][obj2.osx] = parseInt(theChar);
 		IsDigit = true;
 		} else 
 			if ((objnid[nid] === true && Verif === false) || (objnid[nid] === true && Verif === true))
