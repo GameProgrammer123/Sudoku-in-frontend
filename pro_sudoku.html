@@ -1,37 +1,38 @@
 <html>
-<head><link rel="stylesheet" href="graphsudoku.css"><script type="text/javascript" src="sudokujs1.js"></script></head>
+<head>
+<link rel="stylesheet" href="graphsudoku.css">
+<script type="text/javascript" src="sudokujs1.js"></script></head>
 <body>
 <div class="board-of-game" id="boardgame"></div>
 <div class="info-game">
-<div class="description"></div><div class="InfoFeedback">
-<div class="WhetherCorrectDigit"><p class="meter" id="timecounter">time</p></div><div class="InfoLevel"><p class="DescInfoLevel" id="DescLevel">Info about level</p>
-<div class="forphone">
-<label for="cell">Alternative for phone. Choose between 1 and 9 and press Enter.</label><input type="number" id="cell" value="5" min="1" max="9" /></div></div>
-</div><div class="divbutton">
-<div class="button1">
-<input type="button" name="submit1" style=" position: absolute; left: 9%; width: 80%; height: 88%; white-space: pre-line; bottom: 0;" Value="Create new board sudoku" onclick="CreateNewSudoku();"/>
-<div  style="    width: 10%;
-    height: 99%;
-    background: green;
-	top: 1%;
-	float: left;
-    position: relative;"><p><span>l &nbsp;e &nbsp;v &nbsp;e &nbsp;l &nbsp;&nbsp; | 1</span></p></div>
-<div style="width: 80%; top: 0%; position: absolute; display: inline; margin-top: 2px; left: 10%; height: 11%; text-align: center; background: orange;
-"><p style="position: absolute; margin-left: 20%; margin-top: 2%;">2 &#8212 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; level</p></div>
-<div style="width: 10%;
-    height: 99%;
-    background: red;
-	top: 1%;
-	float: right;
-    position: relative;"><p><span>3 | &nbsp;&nbsp; l&nbsp; e&nbsp; v&nbsp; e&nbsp; l</span></p></div>
-<input type="radio" name="level" value="1" style="position: absolute; left: -5px; top: 62%; height: 22px; width: 22px;">
-<input type="radio" name="level" value="2" style="position: absolute; left: 43.5%; top: 0%; height: 22px; width: 22px;">
-<input type="radio" name="level" value="3" style="position: absolute; right: -5px; top: 26%; height: 22px; width: 22px;">
-</div><div class="button2">
-<input type="button" name="submit2" Value="Insert numbers from newspaper / Reset" onclick="location.reload();"/>
-</div><div class="button3">
-<input type="button" name="submit3" Value="Solution sudoku" onclick="finish();"/>
+<div class="switches"><div class="gemelevel"><p class="maindesc"><span>Choose one from three level.</span></p><div class="groupSwitches"><p class="sidedescription"><span>1</span></p>
+<input type="radio" name="level" value="1" style="position: relative; left: 1%; height: 22px; width: 22px;" checked="checked">
+<p class="sidedescription"><span>2</span></p><input type="radio" name="level" value="2" style="position: relative; left: 2%; height: 22px; width: 22px;">
+<p class="sidedescription"><span>3</span></p><input type="radio" name="level" value="3" style="position: relative; right: 1%; height: 22px; width: 22px;">
 </div></div>
+<div class="engines"><p class="maindesc"><span>Choose one from two engine.</span></p><div class="groupSwitches"><p class="sidedescription"><span>1</span></p>
+<input type="radio" name="engine" value="1" style="position: relative; left: 1%; height: 22px; width: 22px;" checked="checked">
+<p class="sidedescription"><span>2</span></p><input type="radio" name="engine" value="2" style="position: relative; left: 2%; height: 22px; width: 22px;">
+</div></div>
+<div class="keyboard"><p class="maindesc"><span>Show or hide keyboard virtual.</span></p><div class="groupSwitches"><p class="sidedescription"><span>show</span></p>
+<input type="radio" name="keyboardvirtual" value="false" style="position: relative; left: 1%; height: 22px; width: 22px;">
+<p class="sidedescription"><span>hide</span></p><input type="radio" name="keyboardvirtual" value="true" style="position: relative; left: 2%; height: 22px; width: 22px;"  checked="checked">
+</div></div>
+</div><div class="description"><p>Description ...</p></div><div class="InfoFeedback">
+<div class="WhetherCorrectDigit"><p class="meter" id="timecounter">time</p></div><div class="InfoLevel"><p class="DescInfoLevel" id="DescLevel">Info about level</p>
+</div></div>
+<div class="divbutton">
+<div class="button1">
+<input type="button" name="submit1" style=" position: absolute; width: 99%; height: 100%; white-space: pre-line; bottom: 0;" Value="Create new board sudoku" onclick="CreateNewSudoku();"/></div>
+<div class="button3">
+<input type="button" name="submit3" Value="Solution sudoku" onclick="finish();">
+</div></div>
+<div class="virtualkeyboard"><div class="backspace" id="remove" onclick="if(FilledField < 81 || obj4.zmiennastop === false)
+																		  if((objnid[GetIdDiv] === true && VerifTrue === false) || (objnid[GetIdDiv] === true && VerifTrue === true)){
+																		   document.getElementById(GetIdDiv).innerHTML = ''; 
+																		   YX(GetIdDiv, obj2);
+																		   taborg[obj2.osy][obj2.osx] = null;
+																		   IsDigit = false;}"><p style="display: inline;">BACKSPACE</p></div></div>
 </div>
 <div style="border-left: 1px solid black;
     height: 98%;
