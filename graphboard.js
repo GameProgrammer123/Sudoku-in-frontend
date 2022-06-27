@@ -343,14 +343,14 @@ switch (LevelNumber) {
   CreatNewBoard(taborg,81,obj4,81 - FilledField);
   for(var r = 1; r <= 9; ++r)
      for(var c = 1; c <= 9; ++c){
-       document.getElementById((r - 1)* 9 + c).innerHTML = '<p><span>'+taborg[r][c]+'</span></p>';
-	   if(taborg[r][c] !== null){
-		 document.getElementById((r - 1)* 9 + c).style.pointerEvents = "none";
-		 document.getElementById((r - 1)* 9 + c).style.color = "rgb(98 25 25)";
-		}
-	 }
-   if(document.getElementsByName("engine")[0].checked === true) document.getElementsByName("engine")[1].disabled = true
-   else document.getElementsByName("engine")[0].disabled = true
+	if(taborg[r][c] !== null){
+	  document.getElementById((r - 1)* 9 + c).style.pointerEvents = "none";
+	  document.getElementById((r - 1)* 9 + c).style.color = "rgb(98 25 25)";
+	  document.getElementById((r - 1)* 9 + c).innerHTML = '<p><span>'+taborg[r][c]+'</span></p>';
+	}
+     }
+  if(document.getElementsByName("engine")[0].checked === true) document.getElementsByName("engine")[1].disabled = true
+  else document.getElementsByName("engine")[0].disabled = true
   }
 VerifTrue = true;
 }
