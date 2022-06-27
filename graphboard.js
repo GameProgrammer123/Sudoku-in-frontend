@@ -92,7 +92,7 @@ function funkcja3(nid,Verif){
 	   var code = event.keyCode;
        if (code > 48 && code < 58 && objnid[nid] === true){
         var theChar = String.fromCharCode(code);
-        document.getElementById(nid).innerHTML = '<p><span>'+theChar+'</span></p>';
+        document.getElementById(nid).innerHTML = theChar;
 		YX(nid, obj2);
 		taborg[obj2.osy][obj2.osx] = parseInt(theChar);
 		IsDigit = true;
@@ -194,7 +194,7 @@ div_board.onclick = function(){
 	document.getElementById(this.id).style.color="red";
 	if (FilledField < 81 || obj4.zmiennastop === false)
 	if(GetIdDiv !== null && objnid[GetIdDiv] === true){
-	document.getElementById(GetIdDiv).innerHTML = '<p><span>'+document.getElementById(this.id).textContent+'</span></p>';
+	document.getElementById(GetIdDiv).innerHTML = document.getElementById(this.id).textContent;
 	YX(GetIdDiv, obj2);
 	taborg[obj2.osy][obj2.osx] = parseInt(document.getElementById(this.id).textContent);
 	IsDigit = true;
@@ -256,7 +256,7 @@ ChangeRiado(elementsRiadio3,3);
 	  if (firstEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true) 
 	  for(var r = 1; r <= 9; ++r)
          for(var c = 1; c <= 9; ++c){
-		   document.getElementById((r - 1)* 9 + c).innerHTML = '<p><span>'+taborg[r][c]+'</span></p>';
+		   document.getElementById((r - 1)* 9 + c).innerHTML = taborg[r][c];
 		   element.innerHTML = 'Sudoku Solved !!!';
 		   if (VerifTrue === true){ clearInterval(idInterwalu); }
 		   FilledField = FilledField + 1;
@@ -265,7 +265,7 @@ ChangeRiado(elementsRiadio3,3);
 	 else if(secondEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true)
            for(var r = 1; r <= 9; ++r)
          for(var c = 1; c <= 9; ++c){
-		   document.getElementById((r - 1)* 9 + c).innerHTML = '<p><span>'+taborg[r][c]+'</span></p>';
+		   document.getElementById((r - 1)* 9 + c).innerHTML = taborg[r][c];
 		   element.innerHTML = 'Sudoku Solved !!!';
 		   if (VerifTrue === true){ clearInterval(idInterwalu); }
 		   FilledField = FilledField + 1;
@@ -315,8 +315,6 @@ function Verification(FiledId){
 
 function CreateNewSudoku(){
 
-
-
 if (VerifTrue === true) clearInterval(idInterwalu);
 
 switch (LevelNumber) {
@@ -343,10 +341,10 @@ switch (LevelNumber) {
   CreatNewBoard(taborg,81,obj4,81 - FilledField);
   for(var r = 1; r <= 9; ++r)
      for(var c = 1; c <= 9; ++c){
+	document.getElementById((r - 1)* 9 + c).innerHTML = taborg[r][c];
 	if(taborg[r][c] !== null){
 	  document.getElementById((r - 1)* 9 + c).style.pointerEvents = "none";
 	  document.getElementById((r - 1)* 9 + c).style.color = "rgb(98 25 25)";
-	  document.getElementById((r - 1)* 9 + c).innerHTML = '<p><span>'+taborg[r][c]+'</span></p>';
 	}
      }
   if(document.getElementsByName("engine")[0].checked === true) document.getElementsByName("engine")[1].disabled = true
