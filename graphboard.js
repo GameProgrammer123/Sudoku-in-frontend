@@ -81,7 +81,7 @@ function funkcja3(nid,Verif){
 	document.getElementById(nid).style.background="#0000ff";
     
 	if (Verif === true){
-	  if (document.getElementById(nid).innerHTML === ''){
+	  if (document.getElementById(nid).textContent === ''){
 		if (objnid[nid] === false)
 	      objnid[nid] = true;
 	  }
@@ -92,7 +92,7 @@ function funkcja3(nid,Verif){
 	   var code = event.keyCode;
        if (code > 48 && code < 58 && objnid[nid] === true){
         var theChar = String.fromCharCode(code);
-        document.getElementById(nid).innerHTML = theChar;
+        document.getElementById(nid).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+theChar+'</p>';
 		YX(nid, obj2);
 		taborg[obj2.osy][obj2.osx] = parseInt(theChar);
 		IsDigit = true;
@@ -194,7 +194,7 @@ div_board.onclick = function(){
 	document.getElementById(this.id).style.color="red";
 	if (FilledField < 81 || obj4.zmiennastop === false)
 	if(GetIdDiv !== null && objnid[GetIdDiv] === true){
-	document.getElementById(GetIdDiv).innerHTML = document.getElementById(this.id).textContent;
+	document.getElementById(GetIdDiv).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+document.getElementById(this.id).textContent+'</p>';
 	YX(GetIdDiv, obj2);
 	taborg[obj2.osy][obj2.osx] = parseInt(document.getElementById(this.id).textContent);
 	IsDigit = true;
@@ -250,29 +250,34 @@ ChangeRiado(elementsRiadio3,3);
 	obj3.plikom = 0;
 	obj3.nr = 1;
 	obj4.zmiennastop = false;
+	var memoryFilledField = FilledField;
 	FilledField = 0;
 	if (checkdatainput(taborg) === true){
 	 if(EngineNumber === '1')
-	  if (firstEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true) 
-	  for(var r = 1; r <= 9; ++r)
+	  if (firstEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true){ 
+	   for(var r = 1; r <= 9; ++r)
          for(var c = 1; c <= 9; ++c){
-		   document.getElementById((r - 1)* 9 + c).innerHTML = taborg[r][c];
-		   element.innerHTML = 'Sudoku Solved !!!';
-		   if (VerifTrue === true){ clearInterval(idInterwalu); }
+		   document.getElementById((r - 1)* 9 + c).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+taborg[r][c]+'</p>';
 		   FilledField = FilledField + 1;
 		 }
-	  else alert('No Solution !!!')
-	 else if(secondEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true)
+	   if(FilledField === 81){
+	     element.innerHTML = 'Sudoku Solved !!!';
+		 if (VerifTrue === true){ clearInterval(idInterwalu); ChangeRiado(elementsRiadio2,4); VerifTrue = false; }
+	   }
+	  } else alert('No Solution !!!')
+	 else if(secondEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true){
            for(var r = 1; r <= 9; ++r)
-         for(var c = 1; c <= 9; ++c){
-		   document.getElementById((r - 1)* 9 + c).innerHTML = taborg[r][c];
-		   element.innerHTML = 'Sudoku Solved !!!';
-		   if (VerifTrue === true){ clearInterval(idInterwalu); }
-		   FilledField = FilledField + 1;
-		 }
-         else alert('No Solution !!!');
-	}else alert('No Solution !!!');
-	if(VerifTrue === true){ ChangeRiado(elementsRiadio2,4); VerifTrue = false; }
+            for(var c = 1; c <= 9; ++c){
+		     document.getElementById((r - 1)* 9 + c).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+taborg[r][c]+'</p>';
+			 FilledField = FilledField + 1;
+			}
+		   if(FilledField === 81){
+		    element.innerHTML = 'Sudoku Solved !!!';
+		    if (VerifTrue === true){ clearInterval(idInterwalu); ChangeRiado(elementsRiadio2,4); VerifTrue = false; }
+		  }
+		 } else alert('No Solution !!!');
+	} else alert('No Solution !!!');
+	FilledField = memoryFilledField;
 }
 
 function RandomNumberInTheRange(min,max){
@@ -340,13 +345,12 @@ switch (LevelNumber) {
   funkcja4();
   CreatNewBoard(taborg,81,obj4,81 - FilledField);
   for(var r = 1; r <= 9; ++r)
-     for(var c = 1; c <= 9; ++c){
-	document.getElementById((r - 1)* 9 + c).innerHTML = taborg[r][c];
-	if(taborg[r][c] !== null){
+    for(var c = 1; c <= 9; ++c)
+	 if(taborg[r][c] !== null){
 	  document.getElementById((r - 1)* 9 + c).style.pointerEvents = "none";
 	  document.getElementById((r - 1)* 9 + c).style.color = "rgb(98 25 25)";
+	  document.getElementById((r - 1)* 9 + c).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+taborg[r][c]+'</p>';
 	}
-     }
   if(document.getElementsByName("engine")[0].checked === true) document.getElementsByName("engine")[1].disabled = true
   else document.getElementsByName("engine")[0].disabled = true
   }
