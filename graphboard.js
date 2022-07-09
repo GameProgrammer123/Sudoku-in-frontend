@@ -24,7 +24,8 @@ var
 
 
 function funkcja1(nid) {
-	 document.getElementById(nid).style.background="#0000ff";
+	if (document.getElementById(nid).textContent === '' || VerifTrue === false)
+	  document.getElementById(nid).style.backgroundColor = "#0000ff";
 } 
 	
 function funkcja2(nid){
@@ -78,7 +79,7 @@ function funkcja3(nid,Verif){
 			  objnid[di] = false; document.getElementById(di).style.backgroundColor = "transparent";
 			}
       
-	document.getElementById(nid).style.background="#0000ff";
+	document.getElementById(nid).style.backgroundColor = "#0000ff";
     
 	if (Verif === true){
 	  if (document.getElementById(nid).textContent === ''){
@@ -92,18 +93,21 @@ function funkcja3(nid,Verif){
 	   var code = event.keyCode;
        if (code > 48 && code < 58 && objnid[nid] === true){
         var theChar = String.fromCharCode(code);
-        document.getElementById(nid).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+theChar+'</p>';
+		document.getElementById(nid).innerHTML = '<p class="fieldP'+nid+'">'+theChar+'</p>';
 		YX(nid, obj2);
 		taborg[obj2.osy][obj2.osx] = parseInt(theChar);
 		IsDigit = true;
+		middleOfElement('field','fieldP'+nid,0,0);
+		document.getElementsByClassName('fieldP'+nid)[0].style.position = 'relative';
+		document.getElementsByClassName('fieldP'+nid)[0].style.margin = 0;
 		} else 
-			if ((objnid[nid] === true && Verif === false) || (objnid[nid] === true && Verif === true))
-			 if (code === 8 || code === 46) {
-			 document.getElementById(nid).innerHTML = '';
-			 YX(nid, obj2);
-			 taborg[obj2.osy][obj2.osx] = null;
-			 IsDigit = false;
-			} else { alert('Enter only digit form one to nine !!! ;)'); IsDigit = false; }
+		  if ((objnid[nid] === true && Verif === false) || (objnid[nid] === true && Verif === true))
+		   if (code === 8 || code === 46) {
+			document.getElementById(nid).innerHTML = '';
+			YX(nid, obj2);
+			taborg[obj2.osy][obj2.osx] = null;
+			IsDigit = false;
+		   } else { alert('Enter only digit form one to nine !!! ;)'); IsDigit = false; }
        if(Verif === true && IsDigit === true) Verification(nid);
 	 }
 	}
@@ -175,12 +179,13 @@ div_board.style.width = elemsquare.style.width;
 elemsquare.style.height = 33.33+'%';
 div_board.style.height = 28.5+'%';
 div_board.setAttribute('id','keyboardvalue'+i);
+div_board.classList.add('numberKey');
 numbersquare = numbersquare + 1;
 const div = document.querySelector(".board-of-game");
 const div_keyboard = document.querySelector(".virtualkeyboard");
 div.appendChild(elemsquare);
 div_board.style.border = '1px solid #000000';
-div_board.innerHTML = '<p>'+i+'</p>';
+div_board.innerHTML = '<p class="fieldP1">'+i+'</p>';
 div_board.onmouseover = function(){
 	document.getElementById(this.id).style.backgroundColor="black";
 	document.getElementById(this.id).style.color="white";
@@ -190,14 +195,18 @@ div_board.onmouseout = function(){
 	document.getElementById(this.id).style.color="black";
 }
 div_board.onclick = function(){
+	var IsDigit = false;
 	document.getElementById(this.id).style.backgroundColor="yellow";
 	document.getElementById(this.id).style.color="red";
 	if (FilledField < 81 || obj4.zmiennastop === false)
 	if(GetIdDiv !== null && objnid[GetIdDiv] === true){
-	document.getElementById(GetIdDiv).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+document.getElementById(this.id).textContent+'</p>';
+	document.getElementById(GetIdDiv).innerHTML = '<p class="fieldP'+GetIdDiv+'">'+document.getElementById(this.id).textContent+'</p>';
 	YX(GetIdDiv, obj2);
 	taborg[obj2.osy][obj2.osx] = parseInt(document.getElementById(this.id).textContent);
 	IsDigit = true;
+	middleOfElement('field','fieldP'+GetIdDiv,0,0);
+	document.getElementsByClassName('fieldP'+GetIdDiv)[0].style.position = 'relative';
+	document.getElementsByClassName('fieldP'+GetIdDiv)[0].style.margin = 0;
 	}
 	if(GetIdDiv !== null && VerifTrue === true && IsDigit === true) Verification(GetIdDiv);
 }
@@ -257,7 +266,7 @@ ChangeRiado(elementsRiadio3,3);
 	  if (firstEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true){ 
 	   for(var r = 1; r <= 9; ++r)
          for(var c = 1; c <= 9; ++c){
-		   document.getElementById((r - 1)* 9 + c).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+taborg[r][c]+'</p>';
+		   document.getElementById((r - 1)* 9 + c).innerHTML = '<p class="fieldP">'+taborg[r][c]+'</p>';
 		   FilledField = FilledField + 1;
 		 }
 	   if(FilledField === 81){
@@ -268,7 +277,7 @@ ChangeRiado(elementsRiadio3,3);
 	 else if(secondEngine(taborg, 0, 1, 1, 1, obj4, 1, 1, 1, 1) === true){
            for(var r = 1; r <= 9; ++r)
             for(var c = 1; c <= 9; ++c){
-		     document.getElementById((r - 1)* 9 + c).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+taborg[r][c]+'</p>';
+		     document.getElementById((r - 1)* 9 + c).innerHTML = '<p class="fieldP">'+taborg[r][c]+'</p>';
 			 FilledField = FilledField + 1;
 			}
 		   if(FilledField === 81){
@@ -278,6 +287,7 @@ ChangeRiado(elementsRiadio3,3);
 		 } else alert('No Solution !!!');
 	} else alert('No Solution !!!');
 	FilledField = memoryFilledField;
+	centeringTheNumbersOnTheBoard();
 }
 
 function RandomNumberInTheRange(min,max){
@@ -349,10 +359,59 @@ switch (LevelNumber) {
 	 if(taborg[r][c] !== null){
 	  document.getElementById((r - 1)* 9 + c).style.pointerEvents = "none";
 	  document.getElementById((r - 1)* 9 + c).style.color = "rgb(98 25 25)";
-	  document.getElementById((r - 1)* 9 + c).innerHTML = '<p style="margin: 0; display: inline; top: 39%; position: relative;">'+taborg[r][c]+'</p>';
+	  document.getElementById((r - 1)* 9 + c).innerHTML = '<p class="fieldP">'+taborg[r][c]+'</p>';
 	}
   if(document.getElementsByName("engine")[0].checked === true) document.getElementsByName("engine")[1].disabled = true
   else document.getElementsByName("engine")[0].disabled = true
   }
+centeringTheNumbersOnTheBoard();
 VerifTrue = true;
+}
+/* var heightDiv = document.getElementById("remove").clientHeight;
+var heightP = document.getElementById("writingremove").clientHeight;
+console.log(heightDiv+' i '+heightP);
+if(heightDiv >= heightP)
+document.getElementById("writingremove").style.top = 50/100*heightDiv - (heightP/2)  + 'px'
+else 
+  document.getElementById("writingremove").style.top = 0;
+console.log(document.getElementById("writingremove").clientHeight);
+
+var heightDivTime = document.getElementById("timecounter").clientHeight; */
+
+function middleOfElement(ClassName1,ClassName2,numInd1,numInd2){
+heightDiv = document.getElementsByClassName(ClassName1)[numInd1].clientHeight;
+heightP = document.getElementsByClassName(ClassName2)[numInd2].clientHeight;
+console.log(heightDiv+' i '+heightP);
+if(heightDiv >= heightP)
+document.getElementsByClassName(ClassName2)[numInd2].style.top = 50/100*heightDiv - (heightP/2)  + 'px'
+else 
+  document.getElementsByClassName(ClassName2)[numInd2].style.top = 0;
+ console.log(50/100*heightDiv - (heightP/2));
+ }
+ 
+
+/* middleOfElement('field','fieldP'); */
+for(var i = 0; i < 9; ++i){
+ middleOfElement('numberKey','fieldP1',0,i);
+ document.getElementsByClassName('fieldP1')[i].style.position = 'relative';
+ document.getElementsByClassName('fieldP1')[i].style.margin = 0;
+ /* for(var helpI = i * 9; helpI < i * 9 + 9; ++helpI){
+   middleOfElement('field','fieldP',helpI,helpI);
+   document.getElementsByClassName('fieldP')[helpI].style.position = 'relative';
+   document.getElementsByClassName('fieldP')[helpI].style.margin = 0
+ } */
+}
+middleOfElement('backspace','writingremove',0,0);
+middleOfElement('WhetherCorrectDigit','meter',0,0);
+middleOfElement('InfoLevel','DescInfoLevel',0,0);
+
+function centeringTheNumbersOnTheBoard(){
+ for(var i = 0; i < 9; ++i)
+  for(var helpI = i * 9; helpI < i * 9 + 9; ++helpI){
+   if(helpI < document.getElementsByClassName('fieldP').length){
+    middleOfElement('field','fieldP',helpI,helpI);
+    document.getElementsByClassName('fieldP')[helpI].style.position = 'relative';
+    document.getElementsByClassName('fieldP')[helpI].style.margin = 0;
+  }
+ }
 }
