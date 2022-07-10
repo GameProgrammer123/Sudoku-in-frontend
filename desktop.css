@@ -1,0 +1,26 @@
+div.board-of-game {
+	border: 1px solid #000000;
+	position: absolute; 
+	width: 48%; height: 98%;
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+	font-size: large;
+    font-family: cursive;
+}
+div.info-game {
+	background-color: grey;
+	position: relative;
+	width: 48%;
+	height: 100%;
+	border: 1px solid #000000;
+	float: right;
+}
+
+div.line{
+	border-left: 2px solid black;
+    height: 98%;
+    width: 0;
+    position: absolute;
+    left: 50.4%;
+}
