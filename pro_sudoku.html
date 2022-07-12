@@ -1,8 +1,14 @@
 <html>
 <head>
-<link rel="stylesheet" href="desktop.css" />
-<link rel="stylesheet" media="screen and (max-device-width: 500px)" href="mobilephone.css" />
-<link rel="stylesheet" href="graphsudoku2.css" />
+<script type="text/javascript">
+window.addEventListener('resize', loadCss);
+function loadCss(){
+if(window.innerWidth >= window.innerHeight)
+ document.getElementsByTagName('head')[0].innerHTML = '<link rel="stylesheet" href="desktop.css" />'
+else document.getElementsByTagName('head')[0].innerHTML = '<link rel="stylesheet" href="mobilephone.css" />';
+}
+loadCss();
+</script>
 <script type="text/javascript" src="sudokujs1.js"></script></head>
 <body>
 <div class="board-of-game" id="boardgame"></div>
@@ -20,19 +26,19 @@
 <input type="radio" name="keyboardvirtual" value="false" style="position: relative; left: 1%; height: 22px; width: 22px;">
 <p class="sidedescription"><span>hide</span></p><input type="radio" name="keyboardvirtual" value="true" style="position: relative; left: 2%; height: 22px; width: 22px;"  checked="checked">
 </div></div>
-</div><div class="description"><p>Description ...</p><div class="virtualkeyboard"><div class="backspace" id="remove" onclick="if(FilledField < 81 || obj4.zmiennastop === false)
+</div><div class="description"><p style="font-family: cursive; font-size: xx-large; font-weight: bold;">Description ...</p><div class="virtualkeyboard"><div class="backspace" id="remove" onclick="if(FilledField < 81 || obj4.zmiennastop === false)
 																		  if((objnid[GetIdDiv] === true && VerifTrue === false) || (objnid[GetIdDiv] === true && VerifTrue === true)){
 																		   document.getElementById(GetIdDiv).innerHTML = ''; 
 																		   YX(GetIdDiv, obj2);
 																		   taborg[obj2.osy][obj2.osx] = null;
 																		   IsDigit = false;}"><p class="writingremove">BACKSPACE</p></div></div></div><div class="InfoFeedback">
-<div class="WhetherCorrectDigit"><p class="meter" id="timecounter">time</p></div><div class="InfoLevel"><p class="DescInfoLevel" id="DescLevel">Info about level</p>
+<div class="WhetherCorrectDigit"><p class="meter" id="timecounter">Time</p></div><div class="InfoLevel"><p class="DescInfoLevel" id="DescLevel">Info about level</p>
 </div></div>
 <div class="divbutton">
 <div class="button1">
 <input type="button" name="submit1" style=" position: absolute; width: 99%; height: 100%; white-space: pre-line; bottom: 0;" Value="Create new board sudoku" onclick="CreateNewSudoku();"/></div>
 <div class="button3">
-<input type="button" name="submit3" Value="Solution sudoku" onclick="finish();">
+<input class="mobilebutton3" type="button" name="submit3" Value="Sudoku solution" onclick="finish();">
 </div></div>
 </div>
 <div class="line"></div>

@@ -294,6 +294,16 @@ function RandomNumberInTheRange(min,max){
   return Math.floor(Math.random()*(max+1-min)+min);
 }
 
+function middleOfElement(ClassName1,ClassName2,numInd1,numInd2){
+heightDiv = document.getElementsByClassName(ClassName1)[numInd1].clientHeight;
+heightP = document.getElementsByClassName(ClassName2)[numInd2].clientHeight;
+console.log(heightDiv+' i '+heightP);
+if(heightDiv > heightP) document.getElementsByClassName(ClassName2)[numInd2].style.top = 50/100*heightDiv - (heightP/2)  + 'px'
+else if(heightDiv === heightP) document.getElementsByClassName(ClassName2)[numInd2].style.top = 0
+	 else document.getElementsByClassName(ClassName2)[numInd2].style.top = 50/100*heightDiv - (heightP/2)  + 'px';
+ // console.log(50/100*heightDiv - (heightP/2));
+ }
+
 function BodyFromFunctionVerification(){
 	for(var z = 1; z < objnid.length; z++)
 		if (objnid[z] === true){ 
@@ -306,6 +316,7 @@ function BodyFromFunctionVerification(){
 	   element.innerHTML = 'Congratulations, you did it !!! '+'<br />'+'Your time: '+the_display_string;
 	   clearInterval(idInterwalu);
 	   ChangeRiado(elementsRiadio2,4);
+	   middleOfElement('WhetherCorrectDigit','meter',0,0);
 	  }
 }
 
@@ -377,18 +388,6 @@ else
 console.log(document.getElementById("writingremove").clientHeight);
 
 var heightDivTime = document.getElementById("timecounter").clientHeight; */
-
-function middleOfElement(ClassName1,ClassName2,numInd1,numInd2){
-heightDiv = document.getElementsByClassName(ClassName1)[numInd1].clientHeight;
-heightP = document.getElementsByClassName(ClassName2)[numInd2].clientHeight;
-console.log(heightDiv+' i '+heightP);
-if(heightDiv >= heightP)
-document.getElementsByClassName(ClassName2)[numInd2].style.top = 50/100*heightDiv - (heightP/2)  + 'px'
-else 
-  document.getElementsByClassName(ClassName2)[numInd2].style.top = 0;
- console.log(50/100*heightDiv - (heightP/2));
- }
- 
 
 /* middleOfElement('field','fieldP'); */
 for(var i = 0; i < 9; ++i){
