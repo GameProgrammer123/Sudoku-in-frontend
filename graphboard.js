@@ -295,13 +295,13 @@ function RandomNumberInTheRange(min,max){
 }
 
 function middleOfElement(ClassName1,ClassName2,numInd1,numInd2){
-heightDiv = document.getElementsByClassName(ClassName1)[numInd1].clientHeight;
-heightP = document.getElementsByClassName(ClassName2)[numInd2].clientHeight;
-console.log(heightDiv+' i '+heightP);
-if(heightDiv > heightP) document.getElementsByClassName(ClassName2)[numInd2].style.top = 50/100*heightDiv - (heightP/2)  + 'px'
+var heightDiv = document.getElementsByClassName(ClassName1)[numInd1].clientHeight;
+var heightP = document.getElementsByClassName(ClassName2)[numInd2].clientHeight;
+// console.log(heightDiv+' i '+heightP);
+if(heightDiv > heightP) document.getElementsByClassName(ClassName2)[numInd2].style.top = ((50/100)*heightDiv) - (heightP/2)  + 'px'
 else if(heightDiv === heightP) document.getElementsByClassName(ClassName2)[numInd2].style.top = 0
-	 else document.getElementsByClassName(ClassName2)[numInd2].style.top = 50/100*heightDiv - (heightP/2)  + 'px';
- // console.log(50/100*heightDiv - (heightP/2));
+	 else document.getElementsByClassName(ClassName2)[numInd2].style.top = ((50/100)*heightDiv) - (heightP/2)  + 'px';
+ // console.log('Height Div: '+heightDiv+' and Height P: '+heightP);
  }
 
 function BodyFromFunctionVerification(){
@@ -378,39 +378,45 @@ switch (LevelNumber) {
 centeringTheNumbersOnTheBoard();
 VerifTrue = true;
 }
-/* var heightDiv = document.getElementById("remove").clientHeight;
-var heightP = document.getElementById("writingremove").clientHeight;
-console.log(heightDiv+' i '+heightP);
-if(heightDiv >= heightP)
-document.getElementById("writingremove").style.top = 50/100*heightDiv - (heightP/2)  + 'px'
-else 
-  document.getElementById("writingremove").style.top = 0;
-console.log(document.getElementById("writingremove").clientHeight);
-
-var heightDivTime = document.getElementById("timecounter").clientHeight; */
-
-/* middleOfElement('field','fieldP'); */
-for(var i = 0; i < 9; ++i){
- middleOfElement('numberKey','fieldP1',0,i);
- document.getElementsByClassName('fieldP1')[i].style.position = 'relative';
- document.getElementsByClassName('fieldP1')[i].style.margin = 0;
- /* for(var helpI = i * 9; helpI < i * 9 + 9; ++helpI){
-   middleOfElement('field','fieldP',helpI,helpI);
-   document.getElementsByClassName('fieldP')[helpI].style.position = 'relative';
-   document.getElementsByClassName('fieldP')[helpI].style.margin = 0
- } */
-}
-middleOfElement('backspace','writingremove',0,0);
-middleOfElement('WhetherCorrectDigit','meter',0,0);
-middleOfElement('InfoLevel','DescInfoLevel',0,0);
 
 function centeringTheNumbersOnTheBoard(){
  for(var i = 0; i < 9; ++i)
   for(var helpI = i * 9; helpI < i * 9 + 9; ++helpI){
-   if(helpI < document.getElementsByClassName('fieldP').length){
-    middleOfElement('field','fieldP',helpI,helpI);
-    document.getElementsByClassName('fieldP')[helpI].style.position = 'relative';
-    document.getElementsByClassName('fieldP')[helpI].style.margin = 0;
-  }
+	
+	numId = document.getElementsByClassName('field')[helpI].getAttribute('id');
+    
+	if(document.getElementsByClassName('fieldP'+numId).length === 1){
+	  middleOfElement('field','fieldP'+numId,0,0);
+	  document.getElementsByClassName('fieldP'+numId)[0].style.position = 'relative';
+	  document.getElementsByClassName('fieldP'+numId)[0].style.margin = 0;
+	}
+    
+	if(helpI < document.getElementsByClassName('fieldP').length){
+	  middleOfElement('field','fieldP',0,helpI);
+	  document.getElementsByClassName('fieldP')[helpI].style.position = 'relative';
+	  document.getElementsByClassName('fieldP')[helpI].style.margin = 0;
+	}
  }
 }
+
+function changeOfProperties(){
+	for(var i = 0; i < 9; ++i){
+ middleOfElement('numberKey','fieldP1',i,i);
+ document.getElementsByClassName('fieldP1')[i].style.position = 'relative';
+ document.getElementsByClassName('fieldP1')[i].style.margin = 0;
+}
+middleOfElement('backspace','writingremove',0,0);
+middleOfElement('WhetherCorrectDigit','meter',0,0);
+middleOfElement('InfoLevel','DescInfoLevel',0,0);
+centeringTheNumbersOnTheBoard();
+}
+
+function getElementsSize(){
+setTimeout(() => {
+    changeOfProperties();
+}, 1000);
+}
+
+window.addEventListener('resize',getElementsSize);
+
+getElementsSize();
