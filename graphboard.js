@@ -113,10 +113,11 @@ function funkcja3(nid,Verif){
 	}
 }
  
- function funkcja4(){
+ function PurgeOldArray(){
 	 for(var valuefield = 1; valuefield <= 81; ++valuefield){
 	  if(document.getElementById(valuefield).textContent !== ''){
 	   document.getElementById(valuefield).textContent = '';
+	   document.getElementById(valuefield).style.backgroundColor = "transparent";
 	   YX(valuefield, obj2);
 	   taborg[obj2.osy][obj2.osx] = null;
 	   document.getElementById(valuefield).style.pointerEvents = "auto";
@@ -363,7 +364,7 @@ switch (LevelNumber) {
 	   document.getElementById('DescLevel').innerHTML = 'Choose level !!!';
 }
   if (FilledField !== 0){
-  funkcja4();
+  PurgeOldArray();
   CreatNewBoard(taborg,81,obj4,81 - FilledField);
   for(var r = 1; r <= 9; ++r)
     for(var c = 1; c <= 9; ++c)
