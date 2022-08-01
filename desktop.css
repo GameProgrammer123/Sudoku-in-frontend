@@ -5,8 +5,8 @@ div.board-of-game {
 	float: left;
 	text-align: center;
 	vertical-align: middle;
-	font-size: xxx-large;
-    font-family: cursive;
+	font-size: 48px;
+    	font-family: 'Times New Roman', Arial;
 }
 div.info-game {
 	background-color: grey;
@@ -105,8 +105,8 @@ div.InfoLevel {
 p.meter, p.DescInfoLevel {
 	position: relative;
 	margin: 0;
-    font-size: large;
-    font-family: cursive;
+    font-size: 18px;
+    font-family: 'Times New Roman', Arial;
     text-align: center;
 }
 div.forphone{
@@ -177,8 +177,8 @@ p.sidedescription{
 	display: inline;
 }
 span{
-	font-size: large;
-    font-family: cursive;
+	font-size: 18px;
+    font-family: 'Times New Roman', Arial;
 }
 div.virtualkeyboard{
 	width: 33.1%;
@@ -194,8 +194,8 @@ div.virtualkeyboard{
 	border-bottom: 2px solid black;
 	vertical-align: middle;
 	text-align: center;
-	font-size: large;
-    font-family: cursive;
+	font-size: 18px;
+    	font-family: 'Times New Roman', Arial;
 	visibility: hidden;
 }
 div.backspace{
@@ -222,8 +222,8 @@ p.writingremove{
   display: block; 
   position: relative;
   margin: 0; 
-  font-size: large; 
-  font-family: cursive; 
+  font-size: 18px;
+  font-family: 'Times New Roman', Arial; 
   text-align: center; 
   color: white;
 }
