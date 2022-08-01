@@ -57,6 +57,9 @@ div.button1 {
 	height: 100%;
 	position: relative;
 	float: left;
+	font-family: 'Times New Roman', Arial;
+	font-size: 25px;
+	font-weight: bold;
 }
 div.button2 {
 	background: white;
