@@ -83,9 +83,9 @@ padding-bottom: 2px;
 width: 99%;
 height: 100%;
 white-space: pre-line;
-font-size: 32px;
+/* font-size: 32px;
 font-family: 'Times New Roman', Arial;
-font-weight: bold;
+font-weight: bold; */
 }
 input[type=button]:hover {background-color: black; background-position: 0px -501px;color: #00ff00; border: solid 3px #00ff00;}
 
