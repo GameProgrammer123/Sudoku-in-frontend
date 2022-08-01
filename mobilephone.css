@@ -184,6 +184,7 @@ p.sidedescription{
 span{
 	font-size: 25px;
     font-family: 'Times New Roman', Arial;
+    font-weight: bold;
 }
 div.virtualkeyboard{
 	width: 33.1%;
@@ -200,7 +201,8 @@ div.virtualkeyboard{
 	vertical-align: middle;
 	text-align: center;
 	font-size: 25px;
-    font-family: 'Times New Roman', Arial;
+        font-family: 'Times New Roman', Arial;
+	font-weight: bold;
 	visibility: hidden;
 }
 div.backspace{
@@ -229,6 +231,7 @@ p.writingremove{
   margin: 0;
   font-size: 25px;
   font-family: 'Times New Roman', Arial;
+  font-weight: bold; 	
   text-align: center; 
   color: white;
   top: 0;
