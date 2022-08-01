@@ -6,7 +6,7 @@ div.board-of-game {
     float: left;
     text-align: center;
     vertical-align: middle;
-    font-size: 48px;
+    font-size: 32px;
     font-family: 'Times New Roman', Arial;
 	}
 div.info-game {
@@ -109,7 +109,7 @@ div.InfoLevel {
 p.meter, p.DescInfoLevel {
 	position: relative;
 	margin: 0;
-    font-size: 18px;
+    font-size: 25px;
     font-family: 'Times New Roman', Arial;
     text-align: center;
 }
@@ -181,7 +181,7 @@ p.sidedescription{
 	display: inline;
 }
 span{
-	font-size: 18px;
+	font-size: 25px;
     font-family: 'Times New Roman', Arial;
 }
 div.virtualkeyboard{
@@ -198,7 +198,7 @@ div.virtualkeyboard{
 	border-bottom: 2px solid black;
 	vertical-align: middle;
 	text-align: center;
-	font-size: 18px;
+	font-size: 25px;
     font-family: 'Times New Roman', Arial;
 	visibility: hidden;
 }
@@ -226,14 +226,14 @@ p.writingremove{
   display: block; 
   position: relative;
   margin: 0;
-  font-size: 18px;
+  font-size: 25px;
   font-family: 'Times New Roman', Arial;
   text-align: center; 
   color: white;
   top: 0;
 }
 input.mobilebutton3{
-  font-size: 18px;
+  font-size: 25px;
   font-family: 'Times New Roman', Arial;
   font-weight: bold;
 }
