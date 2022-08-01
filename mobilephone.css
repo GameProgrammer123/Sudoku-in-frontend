@@ -112,6 +112,7 @@ p.meter, p.DescInfoLevel {
     font-size: 25px;
     font-family: 'Times New Roman', Arial;
     text-align: center;
+    font-weight: bold;
 }
 div.forphone{
 	width: 99%;
