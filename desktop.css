@@ -69,9 +69,6 @@ div.button3 {
 	height: 100%;
 	position: relative;
 	float: left;
-	font-size: 48px;
-        font-family: 'Times New Roman', Arial;
-        font-wieght: bold;
 }
 input[type=button]{ 
 background-color: white; 
@@ -232,4 +229,9 @@ p.writingremove{
   font-family: 'Times New Roman', Arial; 
   text-align: center; 
   color: white;
+}
+input.mobilebutton3{
+  font-size: 48px;
+  font-family: 'Times New Roman', Arial;
+  font-weight: bold;
 }
