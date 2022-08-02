@@ -83,7 +83,7 @@ padding-bottom: 2px;
 width: 99%;
 height: 100%;
 white-space: pre-line;
-font-size: 25px;
+font-size: 32px;
 font-family: 'Times New Roman', Arial;
 font-weight: bold;
 }
@@ -109,7 +109,7 @@ div.InfoLevel {
 p.meter, p.DescInfoLevel {
 	position: relative;
 	margin: 0;
-    font-size: 25px;
+    font-size: 32px;
     font-family: 'Times New Roman', Arial;
     text-align: center;
     font-weight: bold;
@@ -199,7 +199,7 @@ div.virtualkeyboard{
 	border-bottom: 2px solid black;
 	vertical-align: middle;
 	text-align: center;
-	font-size: 25px;
+	font-size: 32px;
         font-family: 'Times New Roman', Arial;
 	font-weight: bold;
 	visibility: hidden;
@@ -228,7 +228,7 @@ p.writingremove{
   display: block; 
   position: relative;
   margin: 0;
-  font-size: 25px;
+  font-size: 32px;
   font-family: 'Times New Roman', Arial;
   font-weight: bold; 	
   text-align: center; 
@@ -236,7 +236,7 @@ p.writingremove{
   top: 0;
 }
 input.mobilebutton3{
-  font-size: 25px;
+  font-size: 32px;
   font-family: 'Times New Roman', Arial;
   font-weight: bold;
 }
