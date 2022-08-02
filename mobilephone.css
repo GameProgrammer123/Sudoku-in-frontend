@@ -6,7 +6,7 @@ div.board-of-game {
     float: left;
     text-align: center;
     vertical-align: middle;
-    font-size: 32px;
+    font-size: 48px;
     font-family: 'Times New Roman', Arial;
 	}
 div.info-game {
@@ -83,7 +83,7 @@ padding-bottom: 2px;
 width: 99%;
 height: 100%;
 white-space: pre-line;
-font-size: 32px;
+font-size: 48px;
 font-family: 'Times New Roman', Arial;
 font-weight: bold;
 }
@@ -182,7 +182,7 @@ p.sidedescription{
 	display: inline;
 }
 span{
-	font-size: 32px;
+	font-size: 48px;
     font-family: 'Times New Roman', Arial;
 }
 div.virtualkeyboard{
