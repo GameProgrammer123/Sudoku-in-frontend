@@ -241,13 +241,16 @@ input.mobilebutton3{
   font-weight: bold;
 }
 @media screen and (min-width: 480px) and (max-width: 1079px) {
-	input[type=button]{
-          font-size: 24px;
-        }
-	span{
-	  font-size: 24px;
-        }
-        p.writingremove{
-          font-size: 24px;
-	}
+ input[type=button]{
+   font-size: 24px;
+ }
+ span{
+   font-size: 24px;
+ }
+ p.writingremove{
+   font-size: 24px;
+ }
+ p.meter{
+  font-size: 24px;
+ }
 }
