@@ -240,7 +240,7 @@ input.mobilebutton3{
   font-family: 'Times New Roman', Arial;
   font-weight: bold;
 }
-@media screen and (max-width: 720px){
+@media screen and (min-width: 480px) and (max-width: 1079px) {
 	input[type=button]{
           font-size: 32px;
           font-family: 'Times New Roman', Arial;
