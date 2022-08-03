@@ -243,11 +243,11 @@ input.mobilebutton3{
 @media screen and (min-width: 480px) and (max-width: 1079px) {
 	input[type=button]{
           font-size: 24px;
-          font-family: 'Times New Roman', Arial;
-          font-weight: bold;
-	}
+        }
 	span{
 	  font-size: 24px;
-          font-family: 'Times New Roman', Arial;
+        }
+        p.writingremove{
+          font-size: 24px;
 	}
- }
+}
