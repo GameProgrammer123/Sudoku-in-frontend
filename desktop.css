@@ -235,3 +235,27 @@ input.mobilebutton3{
   font-family: 'Times New Roman', Arial;
   font-weight: bold;
 }
+@media screen and (max-width: 1045px) {
+ input[type=button]{
+   font-size: 24px;
+   font-weight: normal;
+ }
+ span{
+   font-size: 24px;
+ }
+ p.writingremove{
+   font-size: 24px;
+   font-weight: medium;
+ }
+ p.meter{
+  font-size: 40px;
+  font-weight: medium;
+ }
+ div.virtualkeyboard{
+   font-size: 40px;
+   font-weight: medium;
+}
+ input.mobilebutton3{
+  font-size: 24px;
+ }
+}
