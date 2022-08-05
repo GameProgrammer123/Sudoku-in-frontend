@@ -258,5 +258,6 @@ input.mobilebutton3{
  div.virtualkeyboard{
    font-size: 40px;
    font-weight: medium;
+   top: 17%; 
 }
 }
